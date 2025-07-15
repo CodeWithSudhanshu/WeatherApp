@@ -7,7 +7,7 @@ st.title("Weather App")
 city = st.text_input("Enter city name:")
 
 if st.button("Get Weather"):
-    api_key = "acb215dfeba36105cd494ca3f9913c27"  # Replace with your API key
+    api_key = "acb215dfeba36105cd494ca3f9913c27" 
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
     response = requests.get(url)
@@ -18,13 +18,11 @@ if st.button("Get Weather"):
         humidity = data["main"]["humidity"]
         weather = data["weather"][0]["description"].title()
 
-        # Show weather info
         st.subheader(f"📍 Weather in {city.title()}")
         st.write(f"**Condition:** {weather}")
         st.write(f"**Temperature:** {temp}°C")
         st.write(f"**Humidity:** {humidity}%")
 
-        # Bar chart
         labels = ['Temperature (°C)', 'Humidity (%)']
         values = [temp, humidity]
         colors = ['orange', 'skyblue']
